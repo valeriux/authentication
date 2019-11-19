@@ -1,0 +1,10 @@
+GCC=go
+GCMD=run
+GPATH=main.go
+GO_VERSION=1.10.3
+
+RA512=4096
+RA256=2048
+
+run:
+	$(GCC) $(GCMD) $(GPATH)
