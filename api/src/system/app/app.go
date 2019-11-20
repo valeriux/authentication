@@ -1,11 +1,11 @@
 package app
 
 import (
+	"authentication/api/src/system/router"
 	"log"
 	"net/http"
 
 	"github.com/go-xorm/xorm"
-	"github.com/gorilla/mux"
 )
 
 type Server struct {
@@ -24,17 +24,12 @@ func (s *Server) Init(port string, db *xorm.Engine) {
 	s.Db = db
 }
 
-func HomeHandler(w http.ResponseWriter, r *http.Request) {
-	w.Write([]byte("Hello World"))
-
-}
-
 // Start the server
 func (s *Server) Start() {
 	log.Println("Starting server on port!" + s.port)
 
-	router := mux.NewRouter()
-	router.HandleFunc("/", HomeHandler)
+	r.Init()
+	r := router.NewRouter()
 
-	http.ListenAndServe(s.port, router)
+	http.ListenAndServe(s.port, r.Router)
 }

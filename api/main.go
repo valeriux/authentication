@@ -2,7 +2,7 @@ package main
 
 import (
 	"authentication/api/src/system/app"
-	db "authentication/api/src/system/db"
+	DB "authentication/api/src/system/db"
 
 	"flag"
 	"os"
@@ -57,7 +57,7 @@ func init() {
 
 func main() {
 
-	db, err := db.Connect(dbhost, dbport, dbuser, dbpass, dbdatabase, dboptions)
+	db, err := DB.Connect(dbhost, dbport, dbuser, dbpass, dbdatabase, dboptions)
 	if err != nil {
 		panic(err)
 	}
