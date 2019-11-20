@@ -24,7 +24,7 @@ func (s *Server) Init(port string, db *xorm.Engine) {
 	s.Db = db
 }
 
-func HomeHandler(w http.ResponseWriter, r *http.ReadRequest) {
+func HomeHandler(w http.ResponseWriter, r *http.Request) {
 	w.Write([]byte("Hello World"))
 
 }

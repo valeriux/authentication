@@ -56,7 +56,7 @@ func init() {
 }
 
 func main() {
-	DB
+
 	db, err := db.Connect(dbhost, dbport, dbuser, dbpass, dbdatabase, dboptions)
 	if err != nil {
 		panic(err)
