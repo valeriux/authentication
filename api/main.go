@@ -1,10 +1,13 @@
 package main
 
 import (
+	DB "authentication/api/src/system/db"
+
+	"./src/system/app"
+
 	"flag"
 	"os"
 
-	"./src/system/app"
 	"github.com/joho/godotenv"
 )
 
@@ -25,8 +28,13 @@ func init() {
 }
 
 func main() {
+	db, err := DB.Connect()
+	if err != nil {
+		panic(err)
+	}
+
 	s := app.NewServer()
 
-	s.Init(port)
+	s.Init(port, db)
 	s.Start()
 }
