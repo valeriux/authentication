@@ -30,3 +30,6 @@ install_routes:
 install_db:
 	go get -u github.com/go-xorm/xorm
 
+create_keys:
+	ssh-keygen -t rsa -b $(RA512) -f keys/app.rsa
+	openssl rsa -in keys/app.rsa -pubout -outform PEM -out keys/app.rsa.pub
