@@ -28,8 +28,8 @@ func (s *Server) Init(port string, db *xorm.Engine) {
 func (s *Server) Start() {
 	log.Println("Starting server on port!" + s.port)
 
-	r.Init()
 	r := router.NewRouter()
+	r.Init(s.Db)
 
 	http.ListenAndServe(s.port, r.Router)
 }
