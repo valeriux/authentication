@@ -15,7 +15,7 @@ type Router struct {
 func (r *Router) Init(db *xorm.Engine) {
 	r.Router.Use(Middleware)
 
-	baseRoutes := GetRoutes()
+	baseRoutes := GetRoutes(db)
 	for _, route := range baseRoutes {
 		r.Router.
 			Methods(route.Method).
@@ -24,7 +24,7 @@ func (r *Router) Init(db *xorm.Engine) {
 			Handler(route.HandlerFunc)
 	}
 
-	v1SubRoutes := V1SubRoutes.GetRoutes()
+	v1SubRoutes := V1SubRoutes.GetRoutes(db)
 	for name, pack := range v1SubRoutes {
 		r.AttachSubRouterWithMiddleware(name, pack.Routes, pack.Middleware)
 	}

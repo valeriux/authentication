@@ -6,6 +6,8 @@ import (
 	HomeHandler "authentication/api/src/controllers/home"
 	"log"
 	"net/http"
+
+	"github.com/go-xorm/xorm"
 )
 
 func Middleware(next http.Handler) http.Handler {
@@ -15,8 +17,9 @@ func Middleware(next http.Handler) http.Handler {
 	})
 }
 
-func GetRoutes() routes.Routes {
+func GetRoutes(db *xorm.Engine) routes.Routes {
 
+	HomeHandler.Init(db)
 	return routes.Routes{
 		routes.Route{"Home", "GET", "/", HomeHandler.Index},
 	}

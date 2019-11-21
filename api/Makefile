@@ -21,6 +21,9 @@ install:
 	make install_routes
 	make install_db
 
+install_encryption:
+	go get -u "golang.org/x/crypto/bcrypt"
+
 install_routes:
 	go get -u github.com/gorilla/mux
 
