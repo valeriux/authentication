@@ -1,7 +1,6 @@
 package router
 
 // Handlers over routes
-
 import (
 	"authentication/api/pkg/types/routes"
 	HomeHandler "authentication/api/src/controllers/home"
