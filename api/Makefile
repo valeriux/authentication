@@ -14,7 +14,7 @@ build:
 
 build_db:
 	# rm pkg/db/db_structs.go
-	go run pkg/db/main.go -json=./pkg/db/config.json
+	go run pkg/main.go -json=./pkg/db/config.json
 	mv db_structs.go pkg/db/
 
 install:

@@ -1,11 +1,12 @@
 package router
 
 import (
+	"log"
+	"net/http"
+
 	"authentication/api/pkg/types/routes"
 	AuthHandler "authentication/api/src/controllers/auth"
 	HomeHandler "authentication/api/src/controllers/home"
-	"log"
-	"net/http"
 
 	"github.com/go-xorm/xorm"
 )

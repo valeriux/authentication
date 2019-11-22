@@ -1,3 +1,4 @@
+// DATA FROM THE TOKEN
 package jwt
 
 import (
